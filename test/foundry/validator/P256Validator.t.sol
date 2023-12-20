@@ -126,7 +126,7 @@ contract P256ValidatorTest is KernelTestBase {
 
     function generateSignature(uint256 privateKey, bytes32 hash) internal view returns (uint256 r, uint256 s) {
         // Securely generate a random k value for each signature
-        uint256 k = uint256(keccak256(abi.encodePacked(hash, block.timestamp, block.difficulty, privateKey))) % n;
+        uint256 k = uint256(keccak256(abi.encodePacked(hash, block.timestamp, block.prevrandao, privateKey))) % n;
         while (k == 0) {
             k = uint256(keccak256(abi.encodePacked(k))) % n;
         }

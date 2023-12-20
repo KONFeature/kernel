@@ -140,9 +140,6 @@ contract KernelECDSATypedTest is KernelTestBase {
         view
         returns (bytes memory)
     {
-        // Get the kernel private key owner address
-        address owner = vm.addr(_privateKey);
-
         // Get the validator domain separator
         bytes32 domainSeparator = ecdsaTypedValidator.getDomainSeperator();
         bytes32 typedMsgHash = keccak256(

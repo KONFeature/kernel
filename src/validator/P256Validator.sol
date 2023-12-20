@@ -77,7 +77,7 @@ contract P256Validator is IKernelValidator {
         return SIG_VALIDATION_FAILED;
     }
 
-    function validCaller(address _caller, bytes calldata) external view override returns (bool) {
+    function validCaller(address, bytes calldata) external pure override returns (bool) {
         revert NotImplemented();
     }
 }
